@@ -1,15 +1,25 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import { expect } from 'chai';
 
 import SeriesList from '../app/seriesList';
 import SeriesListItem from '../app/seriesListItem';
 
-test('SeriesList should render', () => {
-    const seriesList = shallow(
+jest.mock('../app/api');
+
+test('SeriesList should render', (done) => {
+    const seriesList = mount(
         <SeriesList  />
     );
 
-    expect(seriesList.find('h1').text()).to.equal('SeriesList');
-    expect(seriesList.find(SeriesListItem)).to.have.length(3);
+    //TODO refactor
+    setTimeout(() => {
+        try {
+            expect(seriesList.find('h1').text()).to.equal('SeriesList');
+            expect(seriesList.find(SeriesListItem)).to.have.length(3);
+            done();
+        } catch (error) {
+            done.fail(error);
+        }
+    });
 });
