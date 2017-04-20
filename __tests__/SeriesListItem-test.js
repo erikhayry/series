@@ -1,0 +1,11 @@
+import React from 'react';
+import {shallow} from 'enzyme';
+import SeriesListItem from '../app/seriesListItem';
+
+test('SeriesListItem should render', () => {
+    const seriesList = shallow(
+        <SeriesListItem title="A Title" />
+    );
+
+    expect(seriesList.text()).toEqual('SeriesListItem: A Title');
+});
