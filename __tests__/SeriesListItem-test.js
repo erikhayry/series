@@ -7,5 +7,5 @@ test('SeriesListItem should render', () => {
         <SeriesListItem title="A Title" />
     );
 
-    expect(seriesList.text()).toEqual('SeriesListItem: A Title');
+    expect(seriesList.text()).toEqual('A Title');
 });

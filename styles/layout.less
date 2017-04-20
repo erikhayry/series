@@ -1,0 +1,15 @@
+@import "variables";
+
+.l-header{
+  background-color: @primary-color;
+  height: @header-height;
+}
+
+.l-body{
+  min-height: ~"calc(100% - " @header-height + @footer-height~")";
+}
+
+.l-footer{
+  background-color: @primary-color;
+  height: @footer-height;
+}

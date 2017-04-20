@@ -1,3 +1,6 @@
-import App from './app.js';
-import SeriesList from './app/seriesList.js';
-import SeriesListItem from './app/seriesListItem.js';
+import styles from './styles/app.less';
+
+import App from './app';
+import SeriesList from './app/seriesList';
+import SeriesListItem from './app/seriesListItem';
+

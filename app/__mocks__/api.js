@@ -3,6 +3,11 @@ const series = [
         content: {
             series: {
                 title: '1'
+            },
+            images: {
+                landscape: {
+                    url: ''
+                }
             }
         }
     },
@@ -10,6 +15,11 @@ const series = [
         content: {
             series: {
                 title: '2'
+            },
+            images: {
+                landscape: {
+                    url: ''
+                }
             }
         }
     },
@@ -17,6 +27,11 @@ const series = [
         content: {
             series: {
                 title: '3'
+            },
+            images: {
+                landscape: {
+                    url: ''
+                }
             }
         }
     }

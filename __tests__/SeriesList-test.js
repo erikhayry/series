@@ -15,7 +15,6 @@ test('SeriesList should render', (done) => {
     //TODO refactor
     setTimeout(() => {
         try {
-            expect(seriesList.find('h1').text()).to.equal('SeriesList');
             expect(seriesList.find(SeriesListItem)).to.have.length(3);
             done();
         } catch (error) {

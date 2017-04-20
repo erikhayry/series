@@ -18,13 +18,13 @@ export default class SeriesList extends React.Component {
     render() {
         let listItems = [];
         this.state.series.forEach((item, index) => {
-            listItems.push(<SeriesListItem key={index} title={item.content.series.title} />)
+            //TODO safe object
+            listItems.push(<li key={index} className="m-series-list-item"><SeriesListItem title={item.content.series.title} src={item.content.images.landscape.url}/></li>)
         });
 
         return (
             <div>
-              <h1>SeriesList</h1>
-              <ul>
+              <ul className="m-series-list">
                   {listItems}
               </ul>
             </div>
