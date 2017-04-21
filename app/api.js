@@ -5,6 +5,7 @@ export default function request() {
             .then((response) => response.json())
             .then((responseJson) => {
                 //TODO functional?
+                console.log(responseJson)
                 resolve(responseJson._embedded['viaplay:blocks'][0]._embedded['viaplay:products'])
             })
             .catch((error) => {

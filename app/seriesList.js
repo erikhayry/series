@@ -5,17 +5,19 @@ import request from './api'
 export default class SeriesList extends React.Component {
     constructor(props) {
         super(props);
-
+        console.log('constructor');
         this.state = {
             series: []
         };
     }
     componentDidMount() {
+        console.log('componentDidMount');
         //TODO move out request
         //TODO state ok?
         request().then(series => this.setState({series}))
     }
     render() {
+        console.log('render');
         let listItems = [];
         this.state.series.forEach((item, index) => {
             //TODO safe object
