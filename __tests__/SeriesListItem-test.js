@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import SeriesListItem from '../app/seriesListItem';
+import SeriesListItem from '../app/components/seriesListItem';
 
 test('SeriesListItem should render', () => {
     const seriesList = shallow(

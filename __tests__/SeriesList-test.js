@@ -2,23 +2,26 @@ import React from 'react';
 import {mount} from 'enzyme';
 import { expect } from 'chai';
 
-import SeriesList from '../app/seriesList';
-import SeriesListItem from '../app/seriesListItem';
+import SeriesList from '../app/components/seriesList';
+import SeriesListItem from '../app/components/seriesListItem';
 
-jest.mock('../app/api');
-
-test('SeriesList should render', (done) => {
+test('SeriesList should render', () => {
     const seriesList = mount(
-        <SeriesList  />
+        <SeriesList  series={[
+            {
+                'name': 'name 1',
+                'src': 'src 1'
+            },
+            {
+                'name': 'name 2',
+                'src': 'src 2'
+            },
+            {
+                'name': 'name 3',
+                'src': 'src 3'
+            }
+        ]}/>
     );
 
-    //TODO refactor
-    setTimeout(() => {
-        try {
-            expect(seriesList.find(SeriesListItem)).to.have.length(3);
-            done();
-        } catch (error) {
-            done.fail(error);
-        }
-    });
+    expect(seriesList.find(SeriesListItem)).to.have.length(3);
 });
