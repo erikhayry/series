@@ -1,9 +1,9 @@
 import React from 'react'
-import SeriesList from './SeriesList';
+import Series from '../containers/series';
 
 const App = () => (
     <div>
-        <SeriesList/>
+        <Series/>
     </div>
 );
 
