@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import series from './series'
 
-const todoApp = combineReducers({
+const app = combineReducers({
     series
 });
 
-export default todoApp
+export default app

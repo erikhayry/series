@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { PropTypes }from 'prop-types'
 import { getSeries } from '../actions'
-import SeriesList from '../components/SeriesList'
+import SeriesList from '../components/seriesList'
 
 
 class Series extends Component {
@@ -16,11 +16,13 @@ class Series extends Component {
     }
 
     render(){
-        console.log('render', this.props)
-
         return (
             <div>
-                <SeriesList series={this.props.items} />
+                <SeriesList
+                    series={this.props.items}
+                    isFetching={this.props.isFetching}
+                    dispatch={this.props.dispatch}
+                />
             </div>
         )
     }
@@ -29,20 +31,24 @@ class Series extends Component {
 Series.propTypes = {
     items: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
-    lastUpdated: PropTypes.number,
     dispatch: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
-    console.log('mapStateToProps')
-    console.log(state.series)
+    //TODO correct?
+    const { series } = state;
 
-    const series = state.series;
+    const {
+        items,
+        isFetching
+    } = series.items ? series : {
+        items: [],
+        isFetching: true
+    };
 
     return {
-        items: series.items || [],
-        isFetching: series.isFetching || false,
-        lastUpdated: series.lastUpdated
+        items,
+        isFetching
     }
 }
 

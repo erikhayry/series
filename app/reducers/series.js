@@ -8,12 +8,12 @@ function series(state = {
         case GET_SERIES:
             return Object.assign({}, state, {
                 isFetching: true,
+                items: []
             });
         case RECEIVE_SERIES:
             return Object.assign({}, state, {
                 isFetching: false,
                 items: action.items,
-                lastUpdated: action.receivedAt
             });
         default:
             return state;
@@ -21,6 +21,7 @@ function series(state = {
 }
 
 
+//TODO why both rootReducer and series method
 function rootReducer(state = {}, action) {
     switch (action.type) {
         case RECEIVE_SERIES:

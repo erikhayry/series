@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger'
 import { render } from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import App from './components/App'
+import App from './components/app'
 import rootReducer from './reducers'
 
 const loggerMiddleware = createLogger()
@@ -14,8 +14,8 @@ const loggerMiddleware = createLogger()
 const store = createStore(
     rootReducer,
     applyMiddleware(
-        thunkMiddleware, // lets us dispatch() functions
-        loggerMiddleware // neat middleware that logs actions
+        thunkMiddleware,
+        loggerMiddleware
     )
 );
 
