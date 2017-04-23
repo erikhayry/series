@@ -1,6 +1,6 @@
 import styles from './styles/app.less';
 
-import App from './app';
-import SeriesList from './app/seriesList';
-import SeriesListItem from './app/seriesListItem';
-
+import Root from './app/index';
+import SeriesList from './app/components/seriesList';
+import SeriesListItem from './app/components/seriesListItem';
+import App from './app/components/app';

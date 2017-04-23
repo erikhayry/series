@@ -1,6 +1,6 @@
 import React from 'react';
 import SeriesListItem from './seriesListItem'
-import request from './api'
+import request from './../api'
 
 export default class SeriesList extends React.Component {
     constructor(props) {
