@@ -18,6 +18,7 @@ function receiveSeries(items) {
 }
 
 export function getSeries(size = 10) {
+    console.log('getSeries')
     return function (dispatch) {
         dispatch(fetchSeries());
 

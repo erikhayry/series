@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import { PropTypes }from 'prop-types'
-import { getSeries } from '../actions'
-import SeriesList from '../components/series-list/series-list'
+import { getSeries } from '../../actions'
+import SeriesList from '../../components/series-list/series-list'
 
 
 class Series extends Component {
@@ -11,6 +11,7 @@ class Series extends Component {
     }
 
     componentDidMount() {
+        console.log('componentDidMount')
         const { dispatch } = this.props;
         dispatch(getSeries())
     }
