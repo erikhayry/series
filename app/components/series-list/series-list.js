@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import SeriesListItem from './seriesListItem'
-import { getSeries } from '../actions'
+import SeriesListItem from '../series-list-item/series-list-item'
+import { getSeries } from '../../actions'
 
 const SeriesList = ({ series, isFetching, dispatch}) => {
 
@@ -41,7 +41,7 @@ SeriesList.propTypes = {
         src: PropTypes.string.isRequired
     }).isRequired).isRequired,
     isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func //TODO ok?
 };
 
 export default SeriesList
