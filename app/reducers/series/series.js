@@ -1,6 +1,6 @@
 import {GET_SERIES, RECEIVE_SERIES} from '../../actions'
 
-function series(state = {
+function seriesReducer(state = {
     isFetching: false,
     items: []
 }, action){
@@ -20,4 +20,4 @@ function series(state = {
     }
 }
 
-export default series;
+export default seriesReducer;

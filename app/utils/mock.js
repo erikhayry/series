@@ -1,3 +1,4 @@
+//Mock methods to showcase functionality
 function mock(items){
     return new Promise((resolve) => {
         //Random sized item list between 2 and n big

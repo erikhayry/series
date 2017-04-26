@@ -14,7 +14,6 @@ const SeriesThumbnail = ({ title, src }) => {
                     </div>
                 </div>
             }
-            <h2 className="series-thumbnail-title">{title}</h2>
         </div>
     )
 };

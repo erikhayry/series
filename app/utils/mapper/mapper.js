@@ -28,8 +28,8 @@ function mapper(json){
     let products = either(getProducts(safe(json)));
     return products.map((item) => {
         return {
-            title: item.content.series.title, //TODO handle missing val
-            src: item.content.images.landscape.url === MissingProperty ? undefined : item.content.images.landscape.url ,
+            title: item.content.series.title,
+            src: item.content.images.landscape.url === MissingProperty ? undefined : item.content.images.landscape.url,
         }
     });
 }

@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import { storeFake } from '../../__mocks__/store';
-import Series from './series';
+import List from './list';
 import SeriesList from '../../components/series-list/series-list';
 
-describe('Series container', () => {
+describe('List container', () => {
     let Component;
     let SeriesListComponent;
 
@@ -17,7 +17,7 @@ describe('Series container', () => {
 
         const wrapper = mount(
             <Provider store={store}>
-                <Series
+                <List
                     series={[]}
                     isFetching={true}
                     dispatch={function(){
@@ -27,7 +27,7 @@ describe('Series container', () => {
             </Provider>
         );
 
-        Component = wrapper.find(Series);
+        Component = wrapper.find(List);
         SeriesListComponent = Component.find(SeriesList);
     });
 

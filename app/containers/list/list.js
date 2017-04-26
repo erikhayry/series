@@ -5,7 +5,7 @@ import { getSeries } from '../../actions'
 import SeriesList from '../../components/series-list/series-list'
 import SeriesLoader from '../../components/series-loader/series-loader'
 
-class Series extends Component {
+class List extends Component {
     constructor(props) {
         super(props);
     }
@@ -30,7 +30,7 @@ class Series extends Component {
     }
 }
 
-Series.propTypes = {
+List.propTypes = {
     items: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
     getSeries: PropTypes.func.isRequired
@@ -59,5 +59,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Series)
-
+export default connect(mapStateToProps, mapDispatchToProps)(List)

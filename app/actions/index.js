@@ -1,5 +1,5 @@
 import fetchSeries from '../utils/api'
-import mapper from '../utils/mapper';
+import mapper from '../utils/mapper/mapper';
 import mock from '../utils/mock';
 
 export const GET_SERIES = 'GET_SERIES';

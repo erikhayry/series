@@ -3,28 +3,29 @@ import {mount} from 'enzyme';
 import { expect } from 'chai';
 
 import SeriesList from './series-list';
-import SeriesListItem from '../series-thumbnail/series-list-item';
+import SeriesThumbnail from '../series-thumbnail/series-thumbnail';
 
 test('SeriesList should render', () => {
     const seriesList = mount(
         <SeriesList
             series={[
                 {
-                    'name': 'name 1',
+                    'title': 'title 1',
                     'src': 'src 1'
                 },
                 {
-                    'name': 'name 2',
+                    'title': 'title 2',
                     'src': 'src 2'
                 },
                 {
-                    'name': 'name 3',
+                    'title': 'title 3',
                     'src': 'src 3'
                 },
             ]}
-            isFetching={false}
+            isLoading={false}
+            getSeries={function(){}}
         />
     );
 
-    expect(seriesList.find(SeriesListItem)).to.have.length(3);
+    expect(seriesList.find(SeriesThumbnail)).to.have.length(3);
 });
