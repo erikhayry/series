@@ -3,7 +3,7 @@ import {mount} from 'enzyme';
 import { expect } from 'chai';
 
 import SeriesList from './series-list';
-import SeriesListItem from '../series-list-item/series-list-item';
+import SeriesListItem from '../series-thumbnail/series-list-item';
 
 test('SeriesList should render', () => {
     const seriesList = mount(

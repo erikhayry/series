@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { PropTypes }from 'prop-types'
 import { getSeries } from '../../actions'
 import SeriesList from '../../components/series-list/series-list'
-
+import SeriesLoader from '../../components/series-loader/series-loader'
 
 class Series extends Component {
     constructor(props) {
@@ -11,18 +11,19 @@ class Series extends Component {
     }
 
     componentDidMount() {
-        console.log('componentDidMount')
-        const { dispatch } = this.props;
-        dispatch(getSeries())
+        this.props.getSeries()
     }
 
     render(){
         return (
             <div>
+                <SeriesLoader
+                    isLoading={this.props.isFetching}
+                />
                 <SeriesList
                     series={this.props.items}
-                    isFetching={this.props.isFetching}
-                    dispatch={this.props.dispatch}
+                    isLoading={this.props.isFetching}
+                    getSeries={this.props.getSeries}
                 />
             </div>
         )
@@ -32,17 +33,16 @@ class Series extends Component {
 Series.propTypes = {
     items: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    getSeries: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
-    //TODO correct?
     const { series } = state;
 
     const {
         items,
         isFetching
-    } = series.items ? series : {
+    } = series.items && series.items.length > 0 ? series : {
         items: [],
         isFetching: true
     };
@@ -53,5 +53,11 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(Series)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getSeries: () => dispatch(getSeries()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Series)
 
