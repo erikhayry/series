@@ -2,18 +2,14 @@ const isObject = obj => obj && typeof obj === 'object';
 const hasKey = (obj, key) => key in obj;
 
 const MissingProperty = new Proxy({}, {
-    get: function(target, name){
-        let u = MissingProperty;
-        u.key = name;
-        return u;
-    }
+    get: (target, name) => MissingProperty
 });
 
-const either = (val) => (val === MissingProperty ? [] : val);
+const resolve = (val) => (val === MissingProperty ? [] : val);
 
 function safe(obj) {
     return new Proxy(obj, {
-        get: function(target, name){
+        get: (target, name) => {
             return hasKey(target, name) ?
                 (isObject(target[name]) ? safe(target[name]) : target[name]) : MissingProperty;
         }
@@ -25,12 +21,18 @@ function getProducts(json) {
 }
 
 function mapper(json){
-    let products = either(getProducts(safe(json)));
-    return products.map((item) => {
-        return {
-            title: item.content.series.title,
-            src: item.content.images.landscape.url === MissingProperty ? undefined : item.content.images.landscape.url,
-        }
+    let products = resolve(getProducts(safe(json)));
+    return products
+        .filter(item => item.content.series.title !== MissingProperty)
+        .map(item => {
+            let seriesItem = {
+                title: item.content.series.title,
+            };
+
+            if(item.content.images.landscape.url !== MissingProperty){
+                seriesItem.src =  item.content.images.landscape.url
+            }
+        return seriesItem;
     });
 }
 

@@ -5,11 +5,13 @@ import { mount } from 'enzyme';
 import { storeFake } from '../../__mocks__/store';
 import List from './list';
 import SeriesList from '../../components/series-list/series-list';
+import SeriesLoader from '../../components/series-loader/series-loader';
 import { expect } from 'chai';
 
 describe('List Container', () => {
     let Component;
     let SeriesListComponent;
+    let SeriesLoaderComponent;
 
     beforeEach(() => {
         const store = storeFake({
@@ -19,21 +21,21 @@ describe('List Container', () => {
         const wrapper = mount(
             <Provider store={store}>
                 <List
-                    series={[]}
+                    items={[]}
                     isFetching={true}
-                    dispatch={function(){
-                        //REMOVE
-                    }}
+                    getSeries={() => {}}
                 />
             </Provider>
         );
 
         Component = wrapper.find(List);
         SeriesListComponent = Component.find(SeriesList);
+        SeriesLoaderComponent = Component.find(SeriesLoader);
     });
 
-    it('should render', () => {
-        expect(Component.length).to.be.true;
-        expect(SeriesListComponent.length).toBeTruthy();
+    it('should render SeriesListComponent', () => {
+        expect(Component).to.have.length(1);
+        expect(SeriesListComponent).to.have.length(1);
+        expect(SeriesLoaderComponent).to.have.length(1);
     });
 });

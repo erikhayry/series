@@ -26,7 +26,6 @@ const SeriesList = ({ series, isLoading, getSeries}) => {
     )
 };
 
-//TODO name and src spec here or in SeriesThumbnail
 SeriesList.propTypes = {
     series: PropTypes.arrayOf(PropTypes.shape({
         title: PropTypes.string.isRequired,
