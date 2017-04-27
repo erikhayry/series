@@ -5,8 +5,9 @@ import { mount } from 'enzyme';
 import { storeFake } from '../../__mocks__/store';
 import List from './list';
 import SeriesList from '../../components/series-list/series-list';
+import { expect } from 'chai';
 
-describe('List container', () => {
+describe('List Container', () => {
     let Component;
     let SeriesListComponent;
 
@@ -32,9 +33,7 @@ describe('List container', () => {
     });
 
     it('should render', () => {
-        expect(Component.length).toBeTruthy();
+        expect(Component.length).to.be.true;
         expect(SeriesListComponent.length).toBeTruthy();
     });
-
-    //TODO add more tests
 });

@@ -5,7 +5,7 @@ const SeriesThumbnail = ({ title, src }) => {
     return (
         <div className="series-thumbnail">
             {src &&
-                <img src={src} alt="" className="series-thumbnail-image"/>
+                <img src={src} alt={title} className="series-thumbnail-image"/>
             }
             {!src &&
                 <div className="series-thumbnail-placeholder">
