@@ -8,6 +8,6 @@
 
 ##Run
 
- * `npm build` - Build static version of the app. Run by loading index.html in a browser
+ * `npm run build` - Build static version of the app. Run by loading index.html in a browser
  * `npm start` - Run local dev server
  * `npm test` - Test the app
