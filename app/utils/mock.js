@@ -12,7 +12,7 @@ function mock(items){
         //Add delay
         setTimeout(() => {
             resolve(itemsShort)
-        }, 5000);
+        }, 2000);
     })
 }
 
